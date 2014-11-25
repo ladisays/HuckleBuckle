@@ -11,6 +11,16 @@ button {
   letter-spacing: 0.1em;
   background-color: green;
   padding: 5px 2em;
-  margin: 0 5px;
+  margin: 10px 5px 0 5px;
   display: inline-block;
+}
+
+#content {
+  display: block;
+  padding: 0.75em 2em;
+  background-color: #eee;
+  border-radius: 15px;
+  margin: 0 auto;
+  width: 40%;
+  text-align: center;
 }
