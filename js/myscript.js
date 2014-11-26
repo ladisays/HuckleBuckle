@@ -74,33 +74,48 @@ var appStart =  {
     }
   },
 
+  //Function to compare the guess with the hidden number
   compareGuess: function() {
+    //if user guess equals the hidden number, return a positive feedback!
     if(appStart.userGuess === appStart.hidden) {
       return alert("Yaaaaaaay!\nYou have guessed the hidden number!");
     }
+
+    //check if user has guessed more than once
     else if(appStart.previousGuess !== null) {
 
-      if(appStart.hidden === appStart.previousGuess) {
+      //if the user guess equals the previous user guess,
+      //alert the user to try again
+      if(appStart.userGuess === appStart.previousGuess) {
         alert("Don't be so dumb!");
         return appStart.resetTxtInput();
       }
 
+      //if the difference in the new guess and the hidden number is lesser than...
+      //the difference between the hidden number and the previous user guess,
+      //that means the user is closer to the hidden number
       else if(Math.abs(appStart.hidden - appStart.userGuess) < Math.abs(appStart.hidden - appStart.previousGuess)) {
         alert("You are hotter");
         return appStart.resetTxtInput();
       }
 
+      //if the difference in the new guess and the hidden number is greater than...
+      //the difference between the hidden number and the previous user guess,
+      //that means the user is farther to the hidden number
       else if(Math.abs(appStart.hidden - appStart.userGuess) > Math.abs(appStart.hidden - appStart.previousGuess)) {
         alert("You are colder");
         return appStart.resetTxtInput();
       }
 
+      //if half the sum of the previous guess and the new guess equals the hidden number...
+      //that means the user is as close as he was far from the previous guess to the hidden number
       else if((appStart.userGuess + appStart.previousGuess)/2 === appStart.hidden) {
         alert("You are neither getting hotter or colder!");
         return appStart.resetTxtInput();
       }
     }
 
+    //else, ask the user to try again
     else {
       alert("Please try again...");
       appStart.previousGuess = appStart.userGuess;
@@ -110,5 +125,9 @@ var appStart =  {
   }
 };
 
-
+//Initialize the game's object and its required properties once the window loads!
 window.onload = appStart.init();
+
+
+
+
