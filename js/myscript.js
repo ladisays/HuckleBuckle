@@ -117,7 +117,7 @@ var appStart =  {
 
     //else, ask the user to try again
     else {
-      alert("Please try again...");
+      alert("Nice try...\nPlease try again!");
       appStart.previousGuess = appStart.userGuess;
       console.log(appStart.previousGuess);
       return appStart.resetTxtInput();
